@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+## 🚀 Pizza website using ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Have basic understanding of react.
+- create react application using following command
+```cmd
+    npx create-react-app pizza-project
+```
 
-## Available Scripts
+- In public folder , we have index.html file which is the only html file in the project and we are not going to create new html files as we know react known for single page application. we just render the UI/JSX elements in  div with id root.
 
-In the project directory, you can run:
+- In src folder, we are going to write/create the actuall code/project for our application.
 
-### `npm start`
+- Here, index.js is the entry point for the application.
+    - Here with the help of render() function 
+    present in the react-dom in which will return the JSX(combination of html and javascript).
+- So, App component is basically the root component of the application while rest of component is child component.
+- There are 2 ways to create the components - Class component and Functional component(recommended).
+- While naming the any components, must use PascalConvention.
+- For returning single JSX elements is easy.
+```javascript
+    function App() {
+        return <h1> Hello from the App component</h1>;
+    }
+```
+- For returning multiple JSX elements must wrap in ```<div> </div>``` or react fragments ```<> </>```. 
+```javascript
+    function App{
+        return (
+            <div>
+                <h1>Another Route App component</h1>
+                <p>P</p>
+            </div>
+        );
+    }
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    function App{
+        return (
+            <>
+                <h1>Another Route App component</h1>
+                <p>P</p>
+            </>
+        );
+    }
+```
 
-### `npm test`
+- export the component so that component can use outside the file(App.js) as well.
+```javascript
+    export default App;
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- In order to use the component(App component in App.js) must import it and use it with the following syntax.
+```javascript
+//import the component
+import App from './App.js'
 
-### `npm run build`
+//using the component 
+ <App/>
+```
+- NOTE : use the component name same as filename also at the time of importing it will increase readibility is you use the same name as component.
+- You can use different names as well but same name will increase the readibility of the code.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
