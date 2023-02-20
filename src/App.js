@@ -1,36 +1,31 @@
-//You have to remember the point this is the root component.
-//and rest of the components are the child components.
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+// import About from "./pages/About";
+import Navbar from "./components/Navbar";
+import Products from "./pages/Products";
 
-// There are basically 2 ways to create react component.
-// 1. class component - which are using previously.
-// 2. functional component - what we are going to use. (Recommended)
+import Cart from "./pages/Cart";
 
-//Same name as file in PascalConvention as it was component.
-function App() {
-  // this is looking like html but it is not this is called JSX element.
-  // return <h1>Hello from the App component</h1>
-
-  //JSX expression must have one parent element.
-  //<p>This is a paragraph</p>;
-
-  //solution - is use return (); for multiple line JSX element.
-  //and also must wrap it multiple JSX element.
-  //   return (
-  //     <div>
-  //         <h1>Hello from the App component</h1>
-  //         <p>This is a paragraph</p>
-  //     </div>
-  //   );
-
-  // if you want to wrap it without extra div - use react fragments <> </>
+// creating App component -
+// Wrapping hierarchy => Router -> Switch -> Route -> Content
+// Overall wrapped by react fragment/div.
+// So <Route> takes props/information
+const App = () => {
   return (
     <>
-      <h1>Hello from the App component</h1>
-      <p>This is a paragraph</p>
+      <Router>
+        {/* rendering Navbar component */}
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} exact></Route>
+          {/* <Route path="/about" element={<About />}></Route> */}
+          <Route path="/products" element={<Products />}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
+        </Routes>
+      </Router>
     </>
   );
-}
+};
 
-//as you have created the component/function so you have to export it so it can use it
-//export default is in-built -> for exporting any module in javascript.
+// exporting the App component - so that it can reuse.
 export default App;
